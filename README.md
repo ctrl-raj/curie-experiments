@@ -25,10 +25,6 @@ Speech output has been added using the {Link: Edge-TTS service https://github.co
 *   Experiment with new ways to make Curie even more witty and Maaya even more charming.
 *   Make it easy for others to try it out.
 
-## License
-
-This project is released under the [LICENSE Name] license. See the `LICENSE` file for more details.
-
 ## Big Thanks To
 
 *   {Link: Mistral AI https://github.com/mistralai/mistral-src} for the base model.

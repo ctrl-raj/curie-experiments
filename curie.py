@@ -37,8 +37,8 @@ while True:
             with tempfile.NamedTemporaryFile(delete=False, suffix=".mp3") as temp_audio:
                 await tts.save(temp_audio.name)
                 print("Cruie's Answer: 🔈")
+                print(f"Response : {responsetxt}")
                 playsound(temp_audio.name)
                 os.remove(temp_audio.name)
 
         asyncio.run(main())
-        print(f"Response : {responsetxt}")

@@ -15,7 +15,7 @@ Speech output has been added using the {Link: Edge-TTS service https://github.co
 *   **Speech Output:** Edge-TTS is used to give each AI a distinct voice.
 *   **Current Development:**  Speech input is currently being added to allow for direct conversation.
 
-# 🎥 [Watch the project walkthrough](https://youtu.be/9FC9Twq6Dvw)
+### 🎥 [Watch the project walkthrough](https://youtu.be/9FC9Twq6Dvw)
 
 ## Getting Started
 

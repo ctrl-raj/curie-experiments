@@ -33,25 +33,13 @@ while True:
         #print(response.response)
         responsetxt = response.response
         async def main():
-            tts = edge_tts.Communicate(responsetxt, voice="en-GB-SoniaNeural")
+            tts = edge_tts.Communicate(responsetxt, voice="en-IE-EmilyNeural")
     
             with tempfile.NamedTemporaryFile(delete=False, suffix=".mp3") as temp_audio:
                 await tts.save(temp_audio.name)
-                print("Cruie's Answer: 🔈")
+                print("Maaya's Answer: 🔈")
                 print(f"Response : {responsetxt}")
                 playsound.playsound(temp_audio.name)
                 os.remove(temp_audio.name)
 
         asyncio.run(main())
-
-
-language = "en"
-text = responsetxt
-
-speech = gTTS(
-    text = text,
-    lang = language,
-    slow = False,
-    tld = "com.au")
-
-speech.save("ttsoutput.mp3")

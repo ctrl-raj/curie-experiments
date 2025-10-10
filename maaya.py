@@ -7,6 +7,9 @@ import os
 import tempfile
 import playsound
 
+# STT Script
+from speechToText import start_listening
+
 try:
     requests.get("http://localhost:11434/api/tags", timeout=3)
     print("✅ Ollama server is running")
@@ -16,13 +19,12 @@ except requests.ConnectionError:
 
 # Initialize the Ollama client
 client = ollama.Client()
-
-# Define the model and the input prompt
-model = "maaya"  # Replace with your model name
+model = "maaya"
 
 while True:
     # Send the query to the model
-    prompt = input("Talk with Maaya: ")
+    prompt = start_listening()
+    print(f"Sending: {prompt}")
 
     if prompt == "//bye":
         break

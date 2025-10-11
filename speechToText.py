@@ -20,8 +20,6 @@ frames_per_chunk = int(samplerate * chunk_duration)
 stop_event = threading.Event()
 audio_queue = queue.Queue()
 audio_buffer = []
-transcribed_texts = []
-last_transcription = ""
 
 
 # code 
@@ -41,9 +39,16 @@ def recorder():
             sd.sleep(100)
 
 def transcriber():
-    global audio_buffer, last_transcription
+    global audio_buffer
     while not stop_event.is_set() or not audio_queue.empty():
-        block = audio_queue.get()
+        
+        try:
+            block = audio_queue.get()
+        except queue.Empty:
+            if stop_event.is_set():
+                break
+            continue
+
         audio_buffer.append(block)
         
         total_frames = sum(len(b) for b in audio_buffer)
@@ -59,13 +64,17 @@ def transcriber():
             )
 
             for segment in result["segments"]:
-                text = segment["text"].strip()
-                transcribed_texts.append(text)
-                last_transcription = text
+                    text = segment["text"].strip()
+                    if text:
+                        print(f"[Live] {text}", flush=True)
+                        transcribed_texts.append(text)
 
 
 def start_listening():
     """Start the recorder and transcriber threads for Maaya."""
+    global transcribed_texts
+    transcribed_texts = []
+
     stop_event.clear()  # reset in case it was used before
 
     recorder_thread = threading.Thread(target=recorder, daemon=True)
@@ -81,8 +90,8 @@ def start_listening():
     except KeyboardInterrupt:
         print("\n--Stopping transcription--")
         stop_event.set()
-        recorder_thread.join(timeout=2)
-        transcriber_thread.join(timeout=2)
+        recorder_thread.join(timeout=0.2)
+        transcriber_thread.join(timeout=5)
 
     full_text = " ".join(transcribed_texts).strip()
     return full_text 

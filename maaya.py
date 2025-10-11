@@ -1,11 +1,21 @@
 import requests
 import ollama
-from gtts import gTTS
 import edge_tts
 import asyncio
 import os
 import tempfile
 import playsound
+
+# for response cleaning
+import re 
+import emoji
+
+def clear_text(text: str):
+    text = emoji.replace_emoji(text, replace='')
+    text = re.sub(r'[*_~`#]+', '', text)
+    text = re.sub(r'\s+', ' ', text).strip()
+
+    return text
 
 # STT Script
 from speechToText import start_listening
@@ -26,14 +36,17 @@ while True:
     prompt = start_listening()
     print(f"Sending: {prompt}")
 
-    if prompt == "//bye":
+    if "slash" in prompt:
+        print("Breaking...")
         break
     else:
         response = client.generate(model=model, prompt=prompt)
-        # Print the response from the model
+
         print("Response from Maaya")
-        #print(response.response)
+        
         responsetxt = response.response
+        responsetxt = clear_text(responsetxt)
+
         async def main():
             tts = edge_tts.Communicate(responsetxt, voice="en-IE-EmilyNeural")
     

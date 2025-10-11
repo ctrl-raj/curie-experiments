@@ -13,7 +13,7 @@ Speech output has been added using the {Link: Edge-TTS service https://github.co
 
 *   **Personality Models:** The models are fine-tuned on Mistral to bring Curie and Maaya to life.
 *   **Speech Output:** Edge-TTS is used to give each AI a distinct voice.
-*   **Current Development:**  Speech input is currently being added to allow for direct conversation.
+*   **Speech To Text:**  Speech input is currently being added to allow for direct conversation.
 
 ### 🎥 [Watch the project walkthrough](https://youtu.be/9FC9Twq6Dvw)
 
@@ -23,7 +23,6 @@ Speech output has been added using the {Link: Edge-TTS service https://github.co
 
 ## To-Do List
 
-*   Integrate speech input.
 *   Experiment with new ways to make Curie even more witty and Maaya even more charming.
 *   Make it easy for others to try it out.
 
@@ -31,3 +30,6 @@ Speech output has been added using the {Link: Edge-TTS service https://github.co
 
 *   {Link: Mistral AI https://github.com/mistralai/mistral-src} for the base model.
 *   The team behind {Link: Edge-TTS https://github.com/rany2/edge-tts} for the speech service.
+*   OpenAI for {Link: Whisper https://openai.com/index/whisper/} for providing the model to convert speech to text.
+*   The team and contributors of {Link: MLX-Whisper https://github.com/ml-explore/mlx-examples/tree/main/whisper} for optimising the model for metal framework. this allowed me to run the model locally on my M4 GPU
+*   Big thanks to {Link: Appele https://www.youtube.com/watch?v=tn2Hvw7eCsw} for providing the framework that allows running models on M-series GPUs

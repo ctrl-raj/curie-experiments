@@ -28,8 +28,8 @@ Speech output has been added using the {Link: Edge-TTS service https://github.co
 
 ## Big Thanks To
 
-*   {Link: Mistral AI https://github.com/mistralai/mistral-src} for the base model.
-*   The team behind {Link: Edge-TTS https://github.com/rany2/edge-tts} for the speech service.
-*   OpenAI for {Link: Whisper https://openai.com/index/whisper/} for providing the model to convert speech to text.
-*   The team and contributors of {Link: MLX-Whisper https://github.com/ml-explore/mlx-examples/tree/main/whisper} for optimising the model for metal framework. this allowed me to run the model locally on my M4 GPU
-*   Big thanks to {Link: Appele https://www.youtube.com/watch?v=tn2Hvw7eCsw} for providing the framework that allows running models on M-series GPUs
+*   [Mistral AI](https://github.com/mistralai/mistral-src) for the base model.
+*   The team behind [Edge-TTS](https://github.com/rany2/edge-tts) for the speech service.
+*   OpenAI for [Whisper](https://openai.com/index/whisper/) for providing the model to convert speech to text.
+*   The team and contributors of [MLX-Whisper](https://github.com/ml-explore/mlx-examples/tree/main/whisper) for optimising the model for metal framework. this allowed me to run the model locally on my M4 GPU
+*   Big thanks to [Apple](https://www.youtube.com/watch?v=tn2Hvw7eCsw) for providing the framework that allows running models on M-series GPUs

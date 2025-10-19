@@ -88,10 +88,10 @@ def start_listening():
         while True:
             time.sleep(0.05)
     except KeyboardInterrupt:
-        print("\n--Stopping transcription--")
+        print("\n--Recording Paused--")
         stop_event.set()
         recorder_thread.join(timeout=0.2)
-        transcriber_thread.join(timeout=5)
+        transcriber_thread.join(timeout=6)
 
     full_text = " ".join(transcribed_texts).strip()
     return full_text 

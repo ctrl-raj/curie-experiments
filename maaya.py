@@ -36,7 +36,7 @@ while True:
     prompt = start_listening()
     print(f"Sending: {prompt}")
 
-    if "slash" in prompt:
+    if "slash" in prompt.lower():
         print("Breaking...")
         break
     else:

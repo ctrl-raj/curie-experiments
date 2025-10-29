@@ -1,3 +1,4 @@
-./ollamaenv
+__pycache__
 tts.py
 .DS_store
+ollamaenv
